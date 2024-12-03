@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/constes.dart';
 import 'package:note_app/screens/home_screen.dart';
 
 void main() {
@@ -12,11 +13,12 @@ class NoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      
-      routes: 
-      {
-        'HomeScreen' : (context) => const HomeScreen(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: KfontFamily,
+      ),
+      routes: {
+        'HomeScreen': (context) => const HomeScreen(),
       },
       initialRoute: 'HomeScreen',
     );
