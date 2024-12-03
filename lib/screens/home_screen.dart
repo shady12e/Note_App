@@ -7,9 +7,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomescreenBody(),
+      body: const HomescreenBody(),
+      floatingActionButton: Container(
+        width: 70,
+        height: 70,
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color.fromARGB(255, 96, 183, 255),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35.0),
+          ),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.add,
+              size: 35,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
-
-

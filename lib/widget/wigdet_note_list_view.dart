@@ -14,7 +14,7 @@ class NotesListView extends StatelessWidget {
         ),
         child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(
-            height: 20,
+            height: 10,
           ),
           itemCount: 5,
           itemBuilder: (context, index) {
