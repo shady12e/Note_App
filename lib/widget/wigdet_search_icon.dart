@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomIconSreach extends StatelessWidget {
-  const CustomIconSreach({super.key});
-
+  const CustomIconSreach({super.key, required this.icon, required this.ontap});
+  final IconData icon;
+  final Function() ontap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,16 +12,14 @@ class CustomIconSreach extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(16),
         ),
       ),
       child: IconButton(
-        onPressed: () {
-          //search icon
-        },
+        onPressed: ontap,
         icon: Icon(
-          Icons.search,
+          icon,
           size: 30,
         ),
       ),

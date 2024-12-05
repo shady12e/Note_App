@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const HomescreenBody(),
-      floatingActionButton: Container(
+      floatingActionButton: SizedBox(
         width: 70,
         height: 70,
         child: FloatingActionButton(
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               builder: (context) {
-                return Modelsheet();
+                return const SingleChildScrollView(child:  Modelsheet());
               },
             );
           },

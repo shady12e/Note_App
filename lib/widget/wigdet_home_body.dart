@@ -7,14 +7,20 @@ class HomescreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Column(
         children: [
-          CustomAppBar(),
-          SizedBox(
+          CustomAppBar(
+            title: 'Notes',
+            icon: Icons.search,
+            onTap: () {
+               print('seacrh');
+            },
+          ),
+        const  SizedBox(
             height: 20,
           ),
-          NotesListView(),
+          const NotesListView(),
         ],
       ),
     );
