@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/customs/custom_text_fild.dart';
 import 'package:note_app/widget/wigdet_app_bar.dart';
 
 class EditNoteViewBody extends StatelessWidget {
@@ -17,6 +18,23 @@ class EditNoteViewBody extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomTextFild(labelText: 'Title'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomTextFild(
+                labelText: 'Content',
+                maxlines: 5,
+              ),
+            )
           ],
         ),
       ),
