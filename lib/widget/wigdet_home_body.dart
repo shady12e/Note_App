@@ -10,9 +10,9 @@ class HomescreenBody extends StatelessWidget {
     return const SafeArea(
       child: Column(
         children: [
-           CustomAppBar(),
-           SizedBox(
-            height: 30,
+          CustomAppBar(),
+          SizedBox(
+            height: 20,
           ),
           NotesListView(),
         ],
@@ -20,5 +20,3 @@ class HomescreenBody extends StatelessWidget {
     );
   }
 }
-
-
