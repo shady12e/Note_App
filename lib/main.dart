@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:note_app/constes.dart';
 import 'package:note_app/screens/home_screen.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(knotesBox);
+
   runApp(const NoteApp());
 }
 
@@ -15,7 +19,7 @@ class NoteApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        fontFamily: KfontFamily,
+        fontFamily: kfontFamily,
       ),
       routes: {
         'HomeScreen': (context) => const HomeScreen(),

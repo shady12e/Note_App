@@ -1,2 +1,2 @@
-// ignore: non_constant_identifier_names
-String  KfontFamily = 'Poppins';
+String kfontFamily = 'Poppins';
+String knotesBox = 'notes_box';
