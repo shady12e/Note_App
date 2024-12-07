@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomElevatedBottom extends StatelessWidget {
-   const CustomElevatedBottom({super.key,  required this.onPressed});
+  const CustomElevatedBottom({super.key, required this.onPressed});
   final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
