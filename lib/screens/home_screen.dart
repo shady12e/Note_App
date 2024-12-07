@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               builder: (context) {
-                return const SingleChildScrollView(child:  Modelsheet());
+                return const Modelsheet();
               },
             );
           },

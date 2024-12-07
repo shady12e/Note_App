@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomElevatedBottom extends StatelessWidget {
-  const CustomElevatedBottom({super.key});
-
+   const CustomElevatedBottom({super.key,  required this.onPressed});
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,7 +13,7 @@ class CustomElevatedBottom extends StatelessWidget {
             const Color(0xff62FCD7),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: const Text(
           'Add',
           style: TextStyle(
