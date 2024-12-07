@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_app/constes.dart';
 import 'package:note_app/model/note_item_model.dart';
-
 import 'add_new_cubit_state.dart';
 
 class AddNewCubitCubit extends Cubit<AddNewCubitState> {
