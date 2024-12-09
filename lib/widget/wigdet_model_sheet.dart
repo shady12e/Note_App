@@ -10,9 +10,15 @@ class Modelsheet extends StatelessWidget {
   const Modelsheet({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddNewCubitCubit(),
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: 10,
+          right: 10,
+          top: 10,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
         child: BlocConsumer<AddNewCubitCubit, AddNewCubitState>(
           listener: (context, state) {
             if (state is AddNewCubitFuiler) {
@@ -23,9 +29,16 @@ class Modelsheet extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNewCubitLouding ? true : false,
-              child: const AddNoteFormState(),
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 13),
+              child: AbsorbPointer(
+                absorbing: state is AddNewCubitLouding ? true : false,
+                child: ModalProgressHUD(
+                  inAsyncCall: state is AddNewCubitLouding ? true : false,
+                  opacity: 0.2,
+                  child: const SingleChildScrollView(child: AddNoteFormState()),
+                ),
+              ),
             );
           },
         ),

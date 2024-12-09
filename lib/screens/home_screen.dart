@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
         child: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (context) {
                 return const Modelsheet();
