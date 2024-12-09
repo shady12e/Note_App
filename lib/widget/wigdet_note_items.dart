@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:note_app/model/note_item_model.dart';
 import 'package:note_app/widget/wigdet_edit_note_view_body.dart';
 
 class NoteItems extends StatelessWidget {
-  const NoteItems({super.key});
-
+  const NoteItems({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
+    final String noteDate = note.date;
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -30,29 +34,29 @@ class NoteItems extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Fultter Tips',
-                      style: TextStyle(
+                      note.title,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 35,
                       ),
                     ),
                   ),
-                   SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
-                    'Bulid your own dream with shady essam',
+                    note.subtitle,
                     softWrap: true,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color.fromARGB(255, 86, 85, 85),
                       fontSize: 20,
                     ),
@@ -79,11 +83,11 @@ class NoteItems extends StatelessWidget {
                 const SizedBox(
                   height: 120,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 10),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
                   child: Text(
-                    'may 21 , 2022',
-                    style: TextStyle(
+                    DateFormat('MMM dd, yyyy').format(DateTime.parse(noteDate)),
+                    style: const TextStyle(
                       color: Color.fromARGB(255, 86, 85, 85),
                     ),
                   ),
