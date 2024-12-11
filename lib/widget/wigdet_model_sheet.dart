@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:note_app/cubits/add_new_cubit/add_new_cubit_cubit.dart';
 import 'package:note_app/cubits/add_new_cubit/add_new_cubit_state.dart';
+import 'package:note_app/cubits/notes/notes_cubit.dart';
 
 import 'package:note_app/widget/add_note_form_state.dart';
 
@@ -26,11 +27,12 @@ class Modelsheet extends StatelessWidget {
             }
             if (state is AddNewCubitSucceful) {
               Navigator.pop(context);
+              BlocProvider.of<NotesCubit>(context).fichinAllNote();
             }
           },
           builder: (context, state) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 13),
+              padding: const EdgeInsets.only(bottom: 10),
               child: AbsorbPointer(
                 absorbing: state is AddNewCubitLouding ? true : false,
                 child: ModalProgressHUD(

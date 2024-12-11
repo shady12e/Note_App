@@ -1,8 +1,11 @@
-part of 'notes_cubit.dart';
+import 'package:flutter/material.dart';
 
 @immutable
-sealed class NotesState {}
+ abstract class NotesState {}
 
-final class NotesInitial extends NotesState {}
+ class NotesInitial extends NotesState {}
+
+ class NotesSucss extends NotesState {}
+ 
 
 

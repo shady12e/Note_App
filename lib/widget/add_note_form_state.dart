@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubits/add_new_cubit/add_new_cubit_cubit.dart';
+import 'package:note_app/cubits/add_new_cubit/add_new_cubit_state.dart';
 import 'package:note_app/customs/custom_text_fild.dart';
 import 'package:note_app/customs/customs_elevted_bottom.dart';
 import 'package:note_app/model/note_item_model.dart';
@@ -61,21 +62,25 @@ class AddNoteFormStateState extends State<AddNoteFormState> {
           const SizedBox(
             height: 110,
           ),
-          CustomElevatedBottom(
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var notesModel = NoteModel(
-                    title: title!,
-                    subtitle: subtitle!,
-                    date: DateTime.now().toString(),
-                    color: Colors.blueAccent.value);
-                BlocProvider.of<AddNewCubitCubit>(context)
-                    .addNewNote(notesModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNewCubitCubit, AddNewCubitState>(
+            builder: (context, state) {
+              return CustomElevatedBottom(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var notesModel = NoteModel(
+                        title: title!,
+                        subtitle: subtitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.blueAccent.value);
+                    BlocProvider.of<AddNewCubitCubit>(context)
+                        .addNewNote(notesModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
         ],

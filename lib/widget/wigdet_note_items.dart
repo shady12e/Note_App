@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:note_app/cubits/notes/notes_cubit.dart';
 import 'package:note_app/model/note_item_model.dart';
 import 'package:note_app/widget/wigdet_edit_note_view_body.dart';
 
@@ -70,8 +72,11 @@ class NoteItems extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 29),
                   child: IconButton(
-                    onPressed: () {
-                      // the bottom that i deleted on it
+                    onPressed: ()  {
+                     
+                      note.delete();
+                       BlocProvider.of<NotesCubit>(context).fichinAllNote();
+                      
                     },
                     icon: const Icon(
                       Icons.delete,
