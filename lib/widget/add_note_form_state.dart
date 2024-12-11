@@ -5,6 +5,7 @@ import 'package:note_app/cubits/add_new_cubit/add_new_cubit_state.dart';
 import 'package:note_app/customs/custom_text_fild.dart';
 import 'package:note_app/customs/customs_elevted_bottom.dart';
 import 'package:note_app/model/note_item_model.dart';
+import 'package:note_app/widget/list_color_view.dart';
 
 class AddNoteFormState extends StatefulWidget {
   const AddNoteFormState({
@@ -60,7 +61,11 @@ class AddNoteFormStateState extends State<AddNoteFormState> {
             maxlines: 5,
           ),
           const SizedBox(
-            height: 110,
+            height: 20,
+          ),
+          const ListColorCircle(),
+          const SizedBox(
+            height: 30,
           ),
           BlocBuilder<AddNewCubitCubit, AddNewCubitState>(
             builder: (context, state) {
@@ -83,8 +88,12 @@ class AddNoteFormStateState extends State<AddNoteFormState> {
               );
             },
           ),
+          const SizedBox(
+            height: 10,
+          )
         ],
       ),
     );
   }
 }
+
