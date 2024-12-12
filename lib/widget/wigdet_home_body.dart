@@ -27,7 +27,7 @@ class _HomescreenBodyState extends State<HomescreenBody> {
             title: 'Notes',
             icon: Icons.search,
             onTap: () {
-              print('seacrh');
+              
             },
           ),
           const SizedBox(
